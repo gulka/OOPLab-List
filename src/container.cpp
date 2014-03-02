@@ -63,3 +63,20 @@ int DeleteItem(item*& pFirst, item*& pCur)
 	delete P;
 	return 0;
 }
+
+//--------- Добавление элементов в список --------------
+void Add_Items()
+{
+	do Create_List(gets(buffer));
+	while(strlen(buffer)>1);
+}
+
+//--------- Извлечение элементов из списка -------------
+void Extracting_Elements()
+{
+	while(pFirst)
+	{
+		puts(pFirst->Str);
+		pFirst=pFirst->p_next;
+	}
+}
