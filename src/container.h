@@ -25,3 +25,6 @@ void Extracting_Elements();
 void Menu1();
 void Menu2(List*&);
 void Menu3(List*&, List*&);
+List* LinkLists(List*, List*);
+List* SubtrLists(List*, List*);
+List* CrossLists(List*, List*);

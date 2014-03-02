@@ -80,3 +80,46 @@ void Extracting_Elements()
 		Pointer_First=Pointer_First->p_next;
 	}
 }
+
+List* LinkLists(List* Point_First1, List* Point_First2)
+	//ќбъединение списков
+{
+	List* pCFirst1 = CopyList(Point_First1);
+	List* pCFirst2 = CopyList(Point_First2);
+	List* pCLast1 = pCFirst1;
+	if (pCLast1 != 0)
+	{
+		while (pCLast1->next != 0)
+			pCLast1 = pCLast1->next; //доходим до конца списка
+		pCLast1->next = pCFirst2;  //св€зываем списки
+	}
+	else
+		pCFirst1 = pCFirst2;
+	return pCFirst1;
+}
+
+List* SubtrLists(List* Point_First1, List* Point_First2)
+	//¬озвращает указатель на результат вычитани€ списка Point_First2 из списка Point_First1
+{
+	List* Point_NewFirst = 0;
+	List* P2;
+	for (; Point_First1; Point_First1 = Point_First1->next)
+		//если текущий элемент не найден во втором списке
+		//то добавл€ем его в новый список
+		if (FindList(Point_First2, P2, Point_First1->data) != 0)
+			AddList(Point_NewFirst, Point_First1->data);
+	return Point_NewFirst;
+}
+
+List* CrossLists(List* Point_First1, List* Point_First2)
+	//пересечение
+{
+	List* Point_NewFirst = 0;
+	List* P2;
+	for (; Point_First1; Point_First1 = Point_First1->next)
+		//если текущий элемент найден во втором списке
+		//то добавл€ем его в новый список
+		if (FindList(Point_First2, P2, Point_First1->data) == 0)
+			AddList(Point_NewFirst, Point_First1->data);
+	return Point_NewFirst;
+}

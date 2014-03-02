@@ -167,7 +167,7 @@ void Menu2(List*& pL1)
 				break;
 			}*/
 		case '9':
-			/*{
+			{
 				system("cls");
 				printf("ֲגוהטעו טלÿ פאיכא: \n");
 				gets(FileName);
@@ -236,7 +236,7 @@ void Menu2(List*& pL1)
 				break;
 			}
 		}
-	}*/
+	}
 }
 
 void Menu3(List*& pL1, List*& Point_Current)
