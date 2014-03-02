@@ -1,7 +1,6 @@
 #include "container.h"
-#include "stdafx.h"
 
-int _tmain(int argc, _TCHAR* argv[])
+int main()
 {
 	setlocale(LC_CTYPE, "rus");
 	Menu1();

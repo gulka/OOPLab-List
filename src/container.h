@@ -1,4 +1,9 @@
-#include "stdafx.h"
+#include <tchar.h>
+#include <stdio.h>
+#include <locale.h>
+#include <iostream>
+#include <conio.h>
+
 
 const int MAX_LEN_STR = 50; //максимальная длина строки
 const int MAX_LEN_FILENAME = 24;  //максимальная длина имени файла
@@ -12,11 +17,11 @@ struct List
 };
 
 void AddList(List*&, char*);
-void Add_Items();
-void Extracting_Elements();
-int  DeleteList(List*&, List*&);
+int DeleteList(List*&, List*&);
 void DeleteList(List*& Point_First);
 void DeleteDblLists(List*);
+void Add_Items();
+void Extracting_Elements();
 void Menu1();
 void Menu2(List*&);
 void Menu3(List*&, List*&);
