@@ -67,16 +67,16 @@ int DeleteItem(item*& pFirst, item*& pCur)
 //--------- Добавление элементов в список --------------
 void Add_Items()
 {
-	do Create_List(gets(buffer));
+	do AddList(gets(buffer));
 	while(strlen(buffer)>1);
 }
 
 //--------- Извлечение элементов из списка -------------
 void Extracting_Elements()
 {
-	while(pFirst)
+	while(Pointer_First)
 	{
-		puts(pFirst->Str);
-		pFirst=pFirst->p_next;
+		puts(Pointer_First->Str);
+		Pointer_First=Pointer_First->p_next;
 	}
 }
