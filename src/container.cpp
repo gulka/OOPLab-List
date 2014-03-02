@@ -1,67 +1,67 @@
 #include <iostream>
 
-const int STR_LEN = 50; //максимальная длина строки
-const int FN_LEN = 24;  //максимальная длина имени файла
-const int DIR = 1;      //прямое направление отображения
-const int BACK = -1;    //обратное направление отображения
 
-typedef struct node {
-		             char* p_value; 	// Указатель на значение 
-		     	     item* next;	// Указатель на следующий узел
-	                }l,*p
-p pFirst = NULL;
-char buffer[STR_LEN];
-
-void Create_List(item*& pFirst, char* Str)  //Создание контейнера
+void DeleteList(List*& Point_First)
+	//Удаление всего списка
 {
-	item* P = new item;
-	P->p_value = new char[strlen(Str)];
-	strcpy(P->p_value, Str);
-	P->next = pFirst;
-	pFirst = P;
+	while (Point_First != 0)
+		DeleteList(Point_First, Point_First);
 }
 
-void Delete_List(item*& pFirst) //Уничтожение контейнера
+void AddList(List*& Point_First, char* Str_buf)
+	
 {
-	while (pFirst != 0)
-		DeleteItem(pFirst, pFirst);
+	List* P = new List;
+	P->data = new char[strlen(Str_buf)];
+	strcpy(P->data, Str_buf);
+	P->next = Point_First;
+	Point_First = P;
 }
 
-int DeleteItem(item*& pFirst, item*& pCur)
-	//Удаление элемента, на который указывает pCur
+int DeleteList(List*& Point_First, List*& Point_Current)
+	//Удаление элемента, на который указывает Point_Current
 	//0 - удаление успешно
 	//1 - список пуст
 	//2 - элемент не найден или не существует
 
 	//если удаляемый элемент не первый,
-	//то pFirst может указывать на любой элемент перед pCur
+	//то Point_First может указывать на любой элемент перед Point_Current
 {
-	if (pFirst == 0) return 1;
-	if (pCur == 0) return 2;	
-	item* P;
+	if (Point_First == 0) return 1;
+	if (Point_Current == 0) return 2;	
+	List* P;
 
 	//удаление первого элемента
-	if (pCur == pFirst)
+	if (Point_Current == Point_First)
 	{
-		P = pCur;
-		pFirst = pFirst->next;
-		pCur = pFirst;
+		P = Point_Current;
+		Point_First = Point_First->next;
+		Point_Current = Point_First;
 		delete P;
 		return 0;
 	}
 
 	//удаление из произвольного места
-	P = pFirst;
-	while (P->next != pCur)
+	P = Point_First;
+	while (P->next != Point_Current)
 	{
 		P = P->next;
 		if (P == 0) return 2;
 	}
-	P->next = pCur->next;
-	P = pCur;
-	pCur = pCur->next;
+	P->next = Point_Current->next;
+	P = Point_Current;
+	Point_Current = Point_Current->next;
 	delete P;
 	return 0;
+}
+
+void DeleteDblLists(List* Point_First)
+	//удаление повторяющихся элементов списка
+{
+	List* P2;
+	for (; Point_First && Point_First->next; Point_First = Point_First->next)
+		while (!FindList(Point_First->next, P2, Point_First->data))
+			DeleteList(Point_First->next, P2);
 }
 
 //--------- Добавление элементов в список --------------
