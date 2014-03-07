@@ -64,20 +64,21 @@ void DeleteDblLists(List* Point_First)
 			DeleteList(Point_First->next, P2);
 }
 
-//--------- Добавление элементов в список --------------
+//--------- Добавление элементов в список --------------Roman_Maks
 void Add_Items()
 {
 	do AddList(gets(buffer));
 	while(strlen(buffer)>1);
 }
 
-//--------- Извлечение элементов из списка -------------
+//--------- Извлечение элементов из списка -------------Roman_Maks
 void Extracting_Elements()
 {
-	while(Pointer_First)
+	List* Point_First;
+	while(Point_First)
 	{
-		puts(Pointer_First->Str);
-		Pointer_First=Pointer_First->p_next;
+		puts(Point_First->data);
+		Point_First=Point_First->next;
 	}
 }
 
@@ -122,4 +123,21 @@ List* CrossLists(List* Point_First1, List* Point_First2)
 		if (FindList(Point_First2, P2, Point_First1->data) == 0)
 			AddList(Point_NewFirst, Point_First1->data);
 	return Point_NewFirst;
+}
+//--------- Реверс нонтейнера --------------------------Roman_Maks
+void ReversContain()
+{
+	List* Point_First;
+	char* Point_Adress[]={NULL};
+	int i=0,j,k;
+	while(Point_First)
+	{
+		Point_Adress[i]=Point_First->data;
+		Point_First=Point_First->next;
+	}
+	for(j=i;j<=0;j--)
+	{
+		Point_First->data=Point_Adress[j];
+		Point_First=Point_First->next;
+	}
 }
