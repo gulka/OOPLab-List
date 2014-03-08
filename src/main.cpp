@@ -11,7 +11,7 @@ void Menu1()
 {
 	setlocale(LC_CTYPE, "rus");
 	const char* MENU_1 = 
-"1 - Новый список\n2 - Открыть список\nEsc - Exit\n";
+"1 - New list\n2 - Open list\nEsc - Exit\n";
 
 	char data;
 	char FileName[MAX_LEN_FILENAME];
@@ -34,12 +34,12 @@ void Menu1()
 		case '2':
 			{
 				system("cls");
-				printf("Введите название файла: \n");
+				printf("Enter the file name: \n");
 				gets(FileName);
 				F = fopen(FileName,"r");
 				if (!F)
 				{
-					printf("Ошибка открытия файла");
+					printf("Error opening file");
 					getch();
 					break;
 				}
@@ -55,7 +55,7 @@ void Menu1()
 		default:
 			{
 				system("cls");
-				printf("Ошибка!\nПовторите ввод!");
+				printf("Error!\nRetype!");
 				getch();
 				break;
 			}
@@ -68,13 +68,13 @@ void Menu2(List*& pL1)
 	setlocale(LC_CTYPE, "rus");
 	const char* MENU_2 =
 "______\n\n \
-1 - Сохранить\t\t 8 - Изменить направление отображения\n \
-2 - Добавить\t\t 9 - Объеденить\n \
-3 - Извлечь\t\
-4 - Найти\t\t 10 - Пересечь\n \
-5 - Подсчет\t 0 - Вычесть\n \
-6 - Сортировка \t\t Esc - Копировать\
-7 - Удалить дубликаты\n";
+1 - Save\t\t 8 - Change the direction of the display\n \
+2 - Add\t\t 9 - Merge\n \
+3 - Extract\t\
+4 - Find\t\t 10 - Cross\n \
+5 - Counting\t 0 - Deduct\n \
+6 - Sorting \t\t Esc - Copy\
+7 - Remove duplicate\n";
 
 	List* pL2;
 	List* pL3;
@@ -94,11 +94,11 @@ void Menu2(List*& pL1)
 		case '1':
 			{
 				system("cls");
-				printf("Введите название файла: \n");
+				printf("Enter the file name: \n");
 				gets(FileName);
 				if (!(F = fopen(FileName, "w")))
 				{
-					printf("Ошибка открытия файла\n\nПовторите ввод!");
+					printf("Error opening file\n\nRetype!");
 					getch();
 					break;
 				}
@@ -109,7 +109,7 @@ void Menu2(List*& pL1)
 		case '2':
 			{
 				system("cls");
-				printf("Введите строку: \n");
+				printf("Enter string: \n");
 				Add_Items();
 				break;
 			}
@@ -121,21 +121,21 @@ void Menu2(List*& pL1)
 		case '4':
 			{
 				system("cls");
-				printf("Введите строку: \n");
+				printf("Enter string: \n");
 				gets(strBuf);
 				switch (FindList(pL1, Point_Current, strBuf))
 				{
 				case 1:
 					{
 						system("cls");
-						printf("Список пуст\n\nНажмите любую клавишу");
+						printf("List is empty\n\nPress any key");
 						getch();
 						break;
 					}
 				case 2:
 					{
 						system("cls");
-						printf("Нет такого элемента\n\nНажмите любую клавишу");
+						printf("No such element\n\nPress any key");
 						getch();
 						break;
 					}
@@ -147,7 +147,7 @@ void Menu2(List*& pL1)
 		case '5':
 			{
 				system("cls");
-				printf("%i Список\n\nНажмите любую клавишу", CountLists(pL1));
+				printf("%i List\n\nPress any key", CountLists(pL1));
 				getch();
 				break;
 			}
@@ -169,12 +169,12 @@ void Menu2(List*& pL1)
 		case '9':
 			{
 				system("cls");
-				printf("Введите имя файла: \n");
+				printf("Enter the file name: \n");
 				gets(FileName);
 				F = fopen(FileName, "r");
 				if (!F)
 				{
-					printf("Ошибка\n\nНажмите любую клавишу");
+					printf("Error\n\nPress any key");
 					getch();
 					break;
 				}
@@ -188,12 +188,12 @@ void Menu2(List*& pL1)
 		case '10':
 			{
 				system("cls");
-				printf("Введите имя файла: \n");
+				printf("Enter the file name: \n");
 				gets(FileName);
 				F = fopen(FileName, "r");
 				if (!F)
 				{
-					printf("Ошибка\n\nНажмите любую клавишу");
+					printf("Error\n\nPress any key");
 					getch();
 					break;
 				}
@@ -207,12 +207,12 @@ void Menu2(List*& pL1)
 		case '0':
 			{
 				system("cls");
-				printf("Введите имя файла: \n");
+				printf("Enter the file name: \n");
 				gets(FileName);
 				F = fopen(FileName, "r");
 				if (!F)
 				{
-					printf("Ошибка\n\nНажмите любую клавишу");
+					printf("Error\n\nPress any key");
 					getch();
 					break;
 				}
@@ -231,7 +231,7 @@ void Menu2(List*& pL1)
 		default:
 			{
 				system("cls");
-				printf("Неправильная команда\n\nНажмите любую клавишу");
+				printf("Wrong command\n\nPress any key");
 				getch();
 				break;
 			}
@@ -244,8 +244,8 @@ void Menu3(List*& pL1, List*& Point_Current)
 	setlocale(LC_CTYPE, "rus");
 	const char* MENU_3 = 
 "______\n\n \
-1 - Удалить список\n \
-Esc - Назад\n";
+1 - Remove the list\n \
+Esc - Back\n";
 
 	char data;
 
@@ -269,7 +269,7 @@ Esc - Назад\n";
 		default:
 			{
 				system("cls");
-				printf("Неправильная инструкция\n\nНажмите любую клавишу");
+				printf("Invalid instruction\n\nPress any key");
 				getch();
 				break;
 			}

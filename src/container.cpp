@@ -47,8 +47,8 @@ int DeleteList(List*& Point_First, List*& Point_Current)
 void DeleteDblLists(List* Point_First)
 {
 	List* P2;
-	for (; Point_First && Point_First->next; Point_First = Point_First->next)
-		while (!FindList(Point_First->next, P2, Point_First->data))
+	for(; Point_First && Point_First->next; Point_First = Point_First->next)
+		while(!FindList(Point_First->next, P2, Point_First->data))
 			DeleteList(Point_First->next, P2);
 }
 
