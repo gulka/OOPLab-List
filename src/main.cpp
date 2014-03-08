@@ -43,7 +43,7 @@ void Menu1()
 					getch();
 					break;
 				}
-				OpenList(pL1, F);
+				ExtractingFile(pL1, F);
 				fclose(F);
 				Menu2(pL1);
 				break;
@@ -102,7 +102,7 @@ void Menu2(List*& pL1)
 					getch();
 					break;
 				}
-				SaveList(pL1, F);
+				SaveToFile(pL1, F);
 				fclose(F);
 				break;
 			}*/
@@ -178,7 +178,7 @@ void Menu2(List*& pL1)
 					getch();
 					break;
 				}
-				OpenList(pL2, F);
+				ExtractingFile(pL2, F);
 				fclose(F);
 				pL3 = LinkLists(pL1, pL2);
 				DeleteList(pL2);
@@ -197,7 +197,7 @@ void Menu2(List*& pL1)
 					getch();
 					break;
 				}
-				OpenList(pL2, F);
+				ExtractingFile(pL2, F);
 				fclose(F);
 				pL3 = CrossLists(pL1, pL2);
 				DeleteList(pL2);
@@ -216,7 +216,7 @@ void Menu2(List*& pL1)
 					getch();
 					break;
 				}
-				OpenList(pL2, F);
+				ExtractingFile(pL2, F);
 				fclose(F);
 				pL3 = SubtrLists(pL1, pL2);
 				DeleteList(pL2);
