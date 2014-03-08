@@ -5,10 +5,10 @@
 #include <conio.h>
 
 
-const int MAX_LEN_STR = 50; //максимальная длина строки
-const int MAX_LEN_FILENAME = 24;  //максимальная длина имени файла
-const int DIR_VIEW = 1;      //прямое направление отображения
-const int BACK_VIEW = -1;    //обратное направление отображения
+const int MAX_LEN_STR = 50; 
+const int MAX_LEN_FILENAME = 24;  
+const int DIR_VIEW = 1;      
+const int BACK_VIEW = -1;    
 
 struct List
 {

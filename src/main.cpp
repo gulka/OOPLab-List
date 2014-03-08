@@ -31,7 +31,7 @@ void Menu1()
 				Menu2(pL1);
 				break;
 			}
-		/*case '2':
+		case '2':
 			{
 				system("cls");
 				printf("Введите название файла: \n");
@@ -59,7 +59,7 @@ void Menu1()
 				getch();
 				break;
 			}
-		}*/
+		}
 	}
 }
 
@@ -91,7 +91,7 @@ void Menu2(List*& pL1)
 		data = getch();
 		switch (data)
 		{
-		/*case '1':
+		case '1':
 			{
 				system("cls");
 				printf("Введите название файла: \n");
@@ -105,7 +105,7 @@ void Menu2(List*& pL1)
 				SaveToFile(pL1, F);
 				fclose(F);
 				break;
-			}*/
+			}
 		case '2':
 			{
 				system("cls");
@@ -119,7 +119,7 @@ void Menu2(List*& pL1)
 				break;
 
 		case '4':
-			/*{
+			{
 				system("cls");
 				printf("Введите строку: \n");
 				gets(strBuf);
@@ -143,29 +143,29 @@ void Menu2(List*& pL1)
 					Menu3(pL1, Point_Current);
 				}
 				break;
-			}*/
+			}
 		case '5':
-			/*{
+			{
 				system("cls");
 				printf("%i Список\n\nНажмите любую клавишу", CountLists(pL1));
 				getch();
 				break;
-			}*/
+			}
 		case '6':
-			/*{
+			{
 				SortList(pL1);
 				break;
-			}*/
+			}
 		case '7':
 			{
 				DeleteDblLists(pL1);
 				break;
 			}
 		case '8':
-			/*{
+			{
 				Direction = -(Direction);
 				break;
-			}*/
+			}
 		case '9':
 			{
 				system("cls");
