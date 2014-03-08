@@ -141,3 +141,49 @@ void ReversContain()
 		Point_First=Point_First->next;
 	}
 }
+//--------- Сохранение контейнера в файл ---------------Roman_Maks
+int SaveToFile(List* Point_First, FILE* F)
+{
+	if (F == 0) return 1;
+	while (Point_First != 0)
+	{
+		fputs(Point_First->data, F);
+		fputc('\n', F);
+		Point_First = Point_First->next;
+	}
+	fputc('\0', F);
+	return 0;
+}
+//--------- Извлечение контейнера из файла--------------Roman_Maks
+int ExtractingFile(List*& Point_First, FILE* F)
+{
+	if (F == 0)
+		return 1;
+	//буфер максимально допустимой длины
+	char strBuf[MAX_LEN_STR];
+	int i;
+	
+	//считываем первую строку, 
+	//чтобы впоследствии не потерять указатель Point_First
+	Point_First = new List;
+	//через буфер, чтобы не выделять лишнюю память в списке
+	fgets(strBuf, MAX_LEN_STR, F);
+	strBuf[strlen(strBuf)-1] = '\0';
+	Point_First->data = new char [strlen(strBuf)];
+	strcpy(Point_First->data, strBuf);
+	List* P = Point_First;
+	P->next = 0;
+	
+	//считываем остальные строки
+	for(;;)
+	{
+		if (*(fgets(strBuf, MAX_LEN_STR, F)) == '\0') return 0;
+		strBuf[strlen(strBuf)-1] = '\0';
+		P->next = new List;
+		P = P->next;
+		P->data = new char [strlen(strBuf)];
+		strcpy(P->data, strBuf);
+		P->next = 0;
+	}
+	return 0;
+}
