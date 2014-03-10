@@ -1,4 +1,4 @@
-#include <tchar.h>
+﻿#include <tchar.h>
 #include <stdio.h>
 #include <locale.h>
 #include <iostream>
@@ -31,3 +31,4 @@ void Menu3(List*&, List*&);
 List* LinkLists(List*, List*);
 List* SubtrLists(List*, List*);
 List* CrossLists(List*, List*);
+int NumberOfElements(List*);
