@@ -1,4 +1,4 @@
-#include "container.h"
+﻿#include "container.h"
 
 
 void DeleteList(List*& Point_First)	
@@ -160,4 +160,12 @@ int ExtractingFile(List*& Point_First, FILE* F)
 		P->next = 0;
 	}
 	return 0;
+}
+
+int NumberOfElements(List* Point_First)
+{
+	int i = 0;
+	for (; Point_First; Point_First = Point_First->next)
+		i++;
+	return i;
 }
