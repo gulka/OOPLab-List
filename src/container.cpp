@@ -169,3 +169,21 @@ int NumberOfElements(List* Point_First)
 		i++;
 	return i;
 }
+
+void BypassAllElements(List* Point_First, int Direction)	
+{
+	if (Direction == BACK_VIEW)
+	{
+		if (Point_First != 0)
+		{
+			BypassAllElements(Point_First->next, BACK_VIEW);
+		}
+	}
+	else
+	{
+		while (Point_First != 0)
+		{
+			Point_First = Point_First->next;
+		}
+	}
+}
