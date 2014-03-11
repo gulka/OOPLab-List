@@ -32,3 +32,4 @@ List* LinkLists(List*, List*);
 List* SubtrLists(List*, List*);
 List* CrossLists(List*, List*);
 int NumberOfElements(List*);
+void BypassAllElements(List*, int);

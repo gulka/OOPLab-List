@@ -86,7 +86,7 @@ void Menu2(List*& pL1)
 	for(;;)
 	{
 		system("cls");
-		PrintList(pL1, Direction);
+		BypassAllElements(pL1, Direction);
 		puts(MENU_2);
 		data = getch();
 		switch (data)
