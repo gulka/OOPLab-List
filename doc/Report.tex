@@ -1,4 +1,4 @@
-﻿\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,12pt]{article}
 \usepackage[T2A]{fontenc}                      %поддержка кириллицы в ЛаТеХ
 \usepackage[utf8]{inputenc}                    %По умолчанию кодировка KOI8 для *nix-систем
 \usepackage[english,russian]{babel}        %определение языков в документе
@@ -20,7 +20,8 @@
 \usepackage{graphicx}                           %разрешить включение PostScript-графики
 \graphicspath{{Images/}}                       %относительный путь к каталогу с рисунками,это может быть мягкая ссылка
 \usepackage{listings}
-
+\usepackage{epstopdf}
+%\epstopdfsetup{outdir=./}
 
 \RequirePackage{caption}
 \DeclareCaptionLabelSeparator{defffis}{ -- }
